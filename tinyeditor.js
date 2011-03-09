@@ -36,7 +36,7 @@ TINY.editor=function(){
 		var p=document.createElement('div'), w=document.createElement('div'), h=document.createElement('div'),
 		l=obj.controls.length, i=0;
 		this.i=document.createElement('iframe'); this.i.frameBorder=0;
-		this.i.width=obj.width; this.i.height=obj.height||'250'; this.ie=T$$$();
+		this.i.width=obj.width||'100%'; this.i.height=obj.height||'250'; this.ie=T$$$();
 		h.className=obj.rowclass||'teheader'; p.className=obj.cssclass||'te'; p.style.width=this.i.width+'px'; p.appendChild(h);
 		for(i;i<l;i++){
 			var id=obj.controls[i];
