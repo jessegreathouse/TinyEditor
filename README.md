@@ -1,6 +1,7 @@
 # TinyEditor
 ## by: [Michael Leigeber](http://www.scriptiny.com/author/michael/)
 ### [official website](http://www.scriptiny.com/2010/02/javascript-wysiwyg-editor/)
+#### This is from a sub branch of the original repo hacked to be used on jessegreathouse.us
 
 TinyEditor is a simple JavaScript WYSIWYG editor that is both lightweight (8KB) and standalone. It can easily be customized to integrate with any website through CSS and the multitude of parameters. It handles most of the basic formatting needs and has some functionality built in to help keep the rendered markup as clean as possible. The icons are courtesy of famfamfam and have been combined into a sprite so there are only a few HTTP requests for the editor. I plan on adding some updates in the future to support font color, a full-screen mode, and a paste from Word option.
 
