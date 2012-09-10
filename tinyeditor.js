@@ -10,34 +10,35 @@ TINY.editor = (function() {
     var T$$$ = function() {
         return document.all ? 1 : 0;
     };
-    var c = [],
-        offset = -30;
+    var c = {
+        cut: [1,'Cut','a','cut',1],
+        copy: [2,'Copy','a','copy',1],
+        paste: [3,'Paste','a','paste',1],
+        bold: [4,'Bold','a','bold'],
+        italic: [5,'Italic','a','italic'],
+        underline: [6,'Underline','a','underline'],
+        strikethrough: [7,'Strikethrough','a','strikethrough'],
+        subscript: [8,'Subscript','a','subscript'],
+        superscript: [9,'Superscript','a','superscript'],
+        orderedlist: [10,'Insert Ordered List','a','insertorderedlist'],
+        unorderedlist: [11,'Insert Unordered List','a','insertunorderedlist'],
+        outdent: [12,'Outdent','a','outdent'],
+        indent: [13,'Indent','a','indent'],
+        leftalign: [14,'Left Align','a','justifyleft'],
+        centeralign: [15,'Center Align','a','justifycenter'],
+        rightalign: [16,'Right Align','a','justifyright'],
+        blockjustify: [17,'Block Justify','a','justifyfull'],
+        undo: [18,'Undo','a','undo'],
+        redo: [19,'Redo','a','redo'],
+        image: [20,'Insert Image','i','insertimage','Enter Image URL:','http://'],
+        hr: [21,'Insert Horizontal Rule','a','inserthorizontalrule'],
+        link: [22,'Insert Hyperlink','i','createlink','Enter URL:','http://'],
+        unlink: [23,'Remove Hyperlink','a','unlink'],
+        unformat: [24,'Remove Formatting','a','removeformat'],
+        print: [25,'Print','a','print']
+    };
 
-    c['cut'] = [1,'Cut','a','cut',1];
-    c['copy'] = [2,'Copy','a','copy',1];
-    c['paste'] = [3,'Paste','a','paste',1];
-    c['bold'] = [4,'Bold','a','bold'];
-    c['italic'] = [5,'Italic','a','italic'];
-    c['underline'] = [6,'Underline','a','underline'];
-    c['strikethrough'] = [7,'Strikethrough','a','strikethrough'];
-    c['subscript'] = [8,'Subscript','a','subscript'];
-    c['superscript'] = [9,'Superscript','a','superscript'];
-    c['orderedlist'] = [10,'Insert Ordered List','a','insertorderedlist'];
-    c['unorderedlist'] = [11,'Insert Unordered List','a','insertunorderedlist'];
-    c['outdent'] = [12,'Outdent','a','outdent'];
-    c['indent'] = [13,'Indent','a','indent'];
-    c['leftalign'] = [14,'Left Align','a','justifyleft'];
-    c['centeralign'] = [15,'Center Align','a','justifycenter'];
-    c['rightalign'] = [16,'Right Align','a','justifyright'];
-    c['blockjustify'] = [17,'Block Justify','a','justifyfull'];
-    c['undo'] = [18,'Undo','a','undo'];
-    c['redo'] = [19,'Redo','a','redo'];
-    c['image'] = [20,'Insert Image','i','insertimage','Enter Image URL:','http://'];
-    c['hr'] = [21,'Insert Horizontal Rule','a','inserthorizontalrule'];
-    c['link'] = [22,'Insert Hyperlink','i','createlink','Enter URL:','http://'];
-    c['unlink'] = [23,'Remove Hyperlink','a','unlink'];
-    c['unformat'] = [24,'Remove Formatting','a','removeformat'];
-    c['print'] = [25,'Print','a','print'];
+    var offset = -30;
 
     function edit(n,obj) {
         this.n = n; window[n] = this;
