@@ -36,7 +36,7 @@ TINY.editor=function(){
 		l=obj.controls.length, i=0;
 		this.i=document.createElement('iframe'); this.i.frameBorder=0;
 		this.i.width=obj.width||'500'; this.i.height=obj.height||'250'; this.ie=T$$$();
-		h.className=obj.rowclass||'teheader'; p.className=obj.cssclass||'te'; p.style.width=this.i.width+'px'; p.appendChild(h);
+		h.className=obj.rowclass||'teheader'; p.className=obj.cssclass||'te'; p.style.maxWidth=this.i.width+'px'; p.appendChild(h);
 		for(i;i<l;i++){
 			var id=obj.controls[i];
 			if(id=='n'){
@@ -89,7 +89,7 @@ TINY.editor=function(){
 			var f=document.createElement('div'); f.className=obj.footerclass||'tefooter';
 			if(obj.toggle){
 				var to=obj.toggle, ts=document.createElement('div');
-				ts.className=to.cssclass||'toggle'; ts.innerHTML=obj.toggletext||'source';
+				ts.className=to.cssclass||'toggle'; ts.innerHTML=to.text||'source';
 				ts.onclick=new Function(this.n+'.toggle(0,this);return false');
 				f.appendChild(ts)
 			}
@@ -164,7 +164,7 @@ TINY.editor=function(){
 	edit.prototype.toggle=function(post,div){
 		if(!this.d){
 			var v=this.t.value;
-			if(div){div.innerHTML=this.obj.toggletext||'source'}
+			if(div){div.innerHTML=this.obj.toggle.text||'source'}
 			if(this.xhtml&&!this.ie){
 				v=v.replace(/<strong>(.*)<\/strong>/gi,'<span style="font-weight: bold;">$1</span>');
 				v=v.replace(/<em>(.*)<\/em>/gi,'<span style="font-weight: italic;">$1</span>')
@@ -191,7 +191,7 @@ TINY.editor=function(){
 				v=v.replace(/<span style="font-style: italic;?">(.*)<\/span>/gi,'<em>$1</em>');
 				v=v.replace(/<span style="font-weight: bold;?">(.*)<\/span>|<b\b[^>]*>(.*?)<\/b[^>]*>/gi,'<strong>$1</strong>')
 			}
-			if(div){div.innerHTML=this.obj.toggletext||'wysiwyg'}
+			if(div){div.innerHTML=this.obj.toggle.activetext||'wysiwyg'}
 			this.t.value=v;
 			if(!post){
 				this.t.style.height=this.i.height+'px';
